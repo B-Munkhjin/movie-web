@@ -1,11 +1,13 @@
-import { Header } from "./_Components/Header";
 import { MovieCard } from "../Components/MovieCard";
+import BigPoster from "./_components/BigPoster";
+import Header from "./_components/Header";
 
 export default function Home() {
   return (
-    <div>
-      <Header />
+    <div className="w-full h-screen">
+      {/* <Header /> */}
       {/* <MovieCard /> */}
+      <BigPoster />
     </div>
   );
 }
