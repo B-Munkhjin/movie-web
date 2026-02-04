@@ -5,7 +5,7 @@ import { Moon } from "lucide-react";
 
 export default function Header() {
   return (
-    <div className="w-full h-15 flex justify-between items-center px-5 lg:px-19 lg:py-[11.5px]">
+    <div className="w-full h-15 flex justify-between items-center px-5 lg:px-19 lg:py-[11.5px] sm:px-5">
       <div className="w-23 h-5 flex gap-2">
         <Film className="size-5 text-indigo-700" />
         <h1 className="italic text-base text-indigo-700 font-bold">Movie Z</h1>
