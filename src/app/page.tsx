@@ -5,7 +5,7 @@ import { Discription } from "./_components/discription";
 import Header from "./_components/Header";
 import { Popular } from "./_components/Popular";
 import { TopRated } from "./_components/TopRated";
-// import { Bottom } from "./_components/Bottom";
+import { Bottom } from "./_components/Bottom";
 
 export default function Home() {
   return (
@@ -18,7 +18,7 @@ export default function Home() {
         <Popular />
         <TopRated />
       </div>
-      {/* <Bottom /> */}
+      <Bottom />
     </div>
   );
 }
