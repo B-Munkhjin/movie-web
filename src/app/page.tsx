@@ -1,4 +1,3 @@
-import { MovieCard } from "../Components/MovieCard";
 import BigPoster from "./_components/BigPoster";
 import { UpComing } from "./_components/UpComing";
 import { Discription } from "./_components/discription";
