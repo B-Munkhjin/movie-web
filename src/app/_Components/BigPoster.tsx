@@ -63,7 +63,7 @@ export default function BigPoster() {
           </CarouselContent>
         </Carousel>
       </div>
-      <div className="hidden lg:flex lg:w-full lg:h-150">
+      <div className="hidden lg:flex lg:w-full lg:h-150 xl:h-198">
         <Carousel setApi={setApi}>
           <CarouselContent>
             {bigPosters.map((src, index) => (
@@ -71,7 +71,7 @@ export default function BigPoster() {
                 <img
                   src={src}
                   alt={`Poster ${index + 1}`}
-                  className="w-full h-150"
+                  className="w-full h-150 xl:h-195"
                 />
               </CarouselItem>
             ))}

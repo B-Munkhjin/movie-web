@@ -1,10 +1,10 @@
 import { MovieCard } from "@/Components/MovieCard";
 import { ArrowRight } from "lucide-react";
-export const UpComing = () => {
+export const Popular = () => {
   return (
     <div className="flex flex-col px-5 relative top-8 gap-8 w-full ">
       <div className="flex justify-between w-full h-9 text-[#09090B] sm:px-5 md:px-2 lg:px-23 xl:px-20 2xl:px-30">
-        <h4 className=" text-2xl font-semibold xl:text-[26px]">Upcoming</h4>
+        <h4 className=" text-2xl font-semibold xl:text-[26px]">Popular</h4>
         <button className="flex justify-center items-center gap-2 bg-[#FFFFFF] rounded-md">
           <p className="text-base md:text-[17px] xl:text-xl">See more</p>
           <ArrowRight className="size-4" />
