@@ -11,8 +11,10 @@ export const Discription = () => {
     <div className="w-full h-66 flex flex-col gap-5 p-5 lg:absolute xl:w-121 xl:h-80 lg:text-[#FFFFFF] lg:top-60 lg:left-35 lg:p-0 lg:justify-evenly 2xl:h-90">
       <div className="w-full h-13 flex items-center lg:flex-col">
         <div className="w-[75%] flex flex-col text-[#09090B] lg:text-[#FFFFFF] lg:w-full">
-          <div className="text-sm lg:text-base 2xl:text-xl">Now Playing:</div>
-          <div className="text-2xl font-semibold ">Wicked</div>
+          <div className="text-sm lg:text-base 2xl:text-xl dark:text-white">
+            Now Playing:
+          </div>
+          <div className="text-2xl font-semibold dark:text-white">Wicked</div>
         </div>
         <div className="w-[25%] flex justify-center items-center gap-1 lg:w-full lg:justify-start ">
           <img src={"/star.png"} className="size-5.5" />
@@ -23,7 +25,7 @@ export const Discription = () => {
           />
         </div>
       </div>
-      <div className="text-sm text-[#09090B] lg:text-[#FAFAFA] lg:w-86 xl:text-base 2xl:text-lg relative lg:top-3">
+      <div className="text-sm text-[#09090B] lg:text-[#FAFAFA] lg:w-86 xl:text-base 2xl:text-lg relative lg:top-3 dark:text-white">
         Elphaba, a misunderstood young woman because of her green skin, and
         Glinda, a popular girl, become friends at Shiz University in the Land of
         Oz. After an encounter with the Wonderful Wizard of Oz, their friendship

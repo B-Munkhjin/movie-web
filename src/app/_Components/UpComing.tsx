@@ -10,14 +10,16 @@ export const UpComing = (props: SepUpcoming) => {
   return (
     <div className="flex flex-col px-5 relative top-8 gap-8 w-full ">
       <div className="flex justify-between w-full h-9 relative text-[#09090B] sm:px-5 md:px-2 lg:px-23 xl:px-20 2xl:px-30">
-        <h4 className=" text-2xl font-semibold xl:text-[26px]">Upcoming</h4>
+        <h4 className=" text-2xl font-semibold xl:text-[26px] dark:text-white">
+          Upcoming
+        </h4>
         <div className={className}>
           <Link
             href="/UpSeperated"
-            className="flex justify-center items-center gap-2 bg-[#FFFFFF] rounded-md"
+            className="flex justify-center items-center gap-2 dark:text-white"
           >
             <p className="text-base md:text-[17px] xl:text-xl">See more</p>
-            <ArrowRight className="size-4" />
+            <ArrowRight className="size-4 dark:text-white" />
           </Link>
         </div>
       </div>
