@@ -1,9 +1,10 @@
 import { Film } from "lucide-react";
 import { Mail } from "lucide-react";
 import { Phone } from "lucide-react";
+
 export const Bottom = () => {
   return (
-    <div className=" w-full h-77 flex flex-col justify-between bg-[#4338CA] py-10 px-5 gap-7 text-[#FAFAFA] relative top-16 md:flex-row lg:px-20 lg:pt-10 lg:pb-16 ">
+    <div className=" w-full h-77 relative top-16 flex flex-col justify-between bg-[#4338CA] py-10 px-5 gap-7 text-[#FAFAFA] md:flex-row lg:px-20 lg:pt-10 lg:pb-16 ">
       <div className="flex flex-col justify-between gap-3 md:justify-normal">
         <div className="w-25 h-5 flex gap-2 items-center">
           <Film className="size-5 lg:size-6" />

@@ -2,9 +2,9 @@ import { Imdb } from "@/Components/imdb";
 import { Button } from "@/Components/ui/button";
 import { Play } from "lucide-react";
 
-type DiscriptionProps = {
-  className: string;
-};
+// type DiscriptionProps = {
+//   className: string;
+// };
 
 export const Discription = () => {
   return (

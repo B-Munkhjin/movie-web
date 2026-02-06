@@ -9,7 +9,6 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/Components/ui/carousel";
-import { Discription } from "./discription";
 
 export default function BigPoster() {
   const posters = ["/wicked.jpg", "/moana.jpg", "/glad.png"];
