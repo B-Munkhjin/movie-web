@@ -1,11 +1,13 @@
 import { MovieCard } from "@/Components/MovieCard";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { getTopRated } from "@/lib/api";
 
 type SepTop = {
   className: string;
 };
-export const TopRated = (props: SepTop) => {
+export const TopRated = async (props: SepTop) => {
+  const dataTopRated = await getTopRated();
   const { className } = props;
   return (
     <div className="flex flex-col px-5 relative top-8 gap-8 w-full ">
@@ -24,8 +26,13 @@ export const TopRated = (props: SepTop) => {
         </div>
       </div>
       <div className="grid  mx-auto grid-cols-2 place-content-between gap-5  sm:grid-cols-3 sm:gap-11 lg:gap-8 md:grid-cols-3 lg:grid-cols-4 md:gap-8 xl:gap-x-14 xl:grid-cols-5 2xl:gap-x-18">
-        {Array.from({ length: 10 }).map((_, i) => (
-          <MovieCard key={i} />
+        {dataTopRated.results.slice(0, 10).map((movie) => (
+          <MovieCard
+            key={movie.id}
+            title={movie.title}
+            rating={movie.vote_average}
+            img={movie.poster_path}
+          />
         ))}
       </div>
     </div>
