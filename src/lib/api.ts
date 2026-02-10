@@ -1,4 +1,3 @@
-import { Progress } from "radix-ui";
 import { Response } from "./types";
 
 const token = process.env.token;

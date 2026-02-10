@@ -1,17 +1,9 @@
 "use client";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/Components/ui/dropdown-menu";
-import { Button } from "@/Components/ui/button";
 
-import { useTheme } from "../theme-provider";
-import { Sun, Moon, ChevronDown, Search, Film } from "lucide-react";
+import { ChevronDown, Search, Film } from "lucide-react";
+import { ModeToggle } from "./toggleMode";
 
 export default function Header() {
-  const { setTheme } = useTheme();
   return (
     <div className="w-full h-15 flex justify-between items-center px-5 lg:px-19 lg:py-[11.5px] sm:px-5 mb-2">
       <div className="w-25 h-5 flex gap-2 items-center">
@@ -45,26 +37,7 @@ export default function Header() {
           <Search className="size-3 text-[#18181B] dark:text-gray-200" />
         </button>
 
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" size="icon">
-              <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
-              <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
-              <span className="sr-only">Toggle theme</span>
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuItem onClick={() => setTheme("light")}>
-              Light
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setTheme("dark")}>
-              Dark
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setTheme("system")}>
-              System
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <ModeToggle />
       </div>
     </div>
   );
