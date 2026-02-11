@@ -1,4 +1,4 @@
-import { Response } from "./types";
+import { Response, Details } from "./types";
 
 const token = process.env.token;
 const urlPop =
@@ -34,4 +34,13 @@ export const getTopRated = async (): Promise<Response> => {
   const responseTopRated = await fetch(urlTopRated, options);
   const dataTopRated = await responseTopRated.json();
   return dataTopRated;
+};
+
+export const getMovieById = async (movieId: string) => {
+  const movieDetails = await fetch(
+    `https://api.themoviedb.org/3/movie/${movieId}?language=en-USa`,
+    options,
+  );
+  const movie = await movieDetails.json();
+  return movie;
 };

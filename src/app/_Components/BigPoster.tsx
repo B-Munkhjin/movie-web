@@ -11,58 +11,28 @@ import {
 } from "@/Components/ui/carousel";
 
 export default function BigPoster() {
-  const posters = ["/wicked.jpg", "/moana.jpg", "/glad.png"];
-  const bigPosters = ["/wickedBig.jpg", "/moanaBig.jpg", "/gladBig.png"];
+  // const posters = ["/wicked.jpg"];
+  const bigPosters = ["/wickedBig.jpg"];
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
   const [count, setCount] = React.useState(0);
 
-  React.useEffect(() => {
-    if (!api) {
-      return;
-    }
+  // React.useEffect(() => {
+  //   if (!api) {
+  //     return;
+  //   }
 
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap() + 1);
+  //   setCount(api.scrollSnapList().length);
+  //   setCurrent(api.selectedScrollSnap() + 1);
 
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1);
-    });
-  }, [api]);
+  //   api.on("select", () => {
+  //     setCurrent(api.selectedScrollSnap() + 1);
+  //   });
+  // }, [api]);
 
   return (
     <div>
-      <div className="w-full h-61.5 lg:hidden sm:hidden">
-        <Carousel setApi={setApi}>
-          <CarouselContent>
-            {posters.map((src, index) => (
-              <CarouselItem key={index}>
-                <img
-                  src={src}
-                  alt={`Poster ${index + 1}`}
-                  className="w-full h-61.5"
-                />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
-      </div>
-      <div className="hidden sm:flex sm:w-full sm:h-110 lg:hidden">
-        <Carousel setApi={setApi}>
-          <CarouselContent>
-            {posters.map((src, index) => (
-              <CarouselItem key={index}>
-                <img
-                  src={src}
-                  alt={`Poster ${index + 1}`}
-                  className="w-full h-110"
-                />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
-      </div>
-      <div className="hidden lg:flex lg:w-full lg:h-150 xl:h-198">
+      <div className="w-full lg:hidden sm:hidden">
         <Carousel setApi={setApi}>
           <CarouselContent>
             {bigPosters.map((src, index) => (
@@ -70,7 +40,37 @@ export default function BigPoster() {
                 <img
                   src={src}
                   alt={`Poster ${index + 1}`}
-                  className="w-full h-150 xl:h-195"
+                  className="w-full "
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+      </div>
+      <div className="hidden sm:flex  lg:hidden">
+        <Carousel setApi={setApi}>
+          <CarouselContent>
+            {bigPosters.map((src, index) => (
+              <CarouselItem key={index}>
+                <img
+                  src={src}
+                  alt={`Poster ${index + 1}`}
+                  className="w-full "
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+      </div>
+      <div className="hidden lg:flex ">
+        <Carousel setApi={setApi}>
+          <CarouselContent>
+            {bigPosters.map((src, index) => (
+              <CarouselItem key={index}>
+                <img
+                  src={src}
+                  alt={`Poster ${index + 1}`}
+                  className="w-full "
                 />
               </CarouselItem>
             ))}

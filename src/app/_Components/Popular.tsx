@@ -9,7 +9,7 @@ type SepPopular = {
 };
 export const Popular = async (props: SepPopular) => {
   const data = await getPopularMovies();
-  console.log("data: ", data);
+  // console.log("data: ", data);
 
   const { className } = props;
   return (
@@ -32,12 +32,13 @@ export const Popular = async (props: SepPopular) => {
       </div>
       <div className="grid  mx-auto grid-cols-2 place-content-between gap-5  sm:grid-cols-3 sm:gap-11 lg:gap-8 md:grid-cols-3 lg:grid-cols-4 md:gap-8 xl:gap-x-14 xl:grid-cols-5 2xl:gap-x-18">
         {data.results.slice(0, 10).map((movie) => (
-          <MovieCard
-            key={movie.id}
-            title={movie.title}
-            rating={movie.vote_average}
-            img={movie.poster_path}
-          />
+          <Link href={`/${movie.id}`} key={movie.id}>
+            <MovieCard
+              title={movie.title}
+              rating={movie.vote_average}
+              img={movie.poster_path}
+            />
+          </Link>
         ))}
       </div>
     </div>

@@ -6,7 +6,7 @@ import { TopRated } from "./_components/TopRated";
 
 export default function Home() {
   return (
-    <div className="w-full h-full flex flex-col">
+    <div className="w-full h-full flex flex-col ">
       <BigPoster />
       <Discription />
       <div className="flex flex-col gap-8">
