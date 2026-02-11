@@ -65,7 +65,7 @@ export const MovieDetails = async ({ movieId }: DetailsPageProps) => {
         <div className="flex flex-col text-[#09090B] h-51 px-5 gap-5">
           <div className="flex gap-13.25 border-b-2 border-[#E4E4E7] h-10">
             <h4 className="w-16 h-7 text-base font-bold">Director</h4>
-            <p className="text-base ">{movie.Director}</p>
+            <p className="text-base ">director ner</p>
           </div>
           <div className="flex gap-13.25 border-b-2 border-[#E4E4E7] h-10 items-center">
             <h4 className="w-16 h-7 text-base font-bold">Writers</h4>
