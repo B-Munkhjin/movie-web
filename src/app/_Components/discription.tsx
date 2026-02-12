@@ -5,10 +5,12 @@ import { Play } from "lucide-react";
 // type DiscriptionProps = {
 //   className: string;
 // };
-
-export const Discription = () => {
+type DiscriptionProps = {
+  className: string;
+};
+export const Discription = ({ className }: DiscriptionProps) => {
   return (
-    <div className="w-full h-66 flex flex-col gap-5 p-5 lg:absolute xl:w-121 xl:h-80 lg:text-[#FFFFFF] lg:top-60 lg:left-35 lg:p-0 lg:justify-evenly 2xl:h-90">
+    <div className={className}>
       <div className="w-full h-13 flex items-center lg:flex-col">
         <div className="w-[75%] flex flex-col text-[#09090B] lg:text-[#FFFFFF] lg:w-full">
           <div className="text-sm lg:text-base 2xl:text-xl dark:text-white">
