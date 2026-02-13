@@ -19,7 +19,7 @@ export const MovieDetails = async ({ movieId }: DetailsPageProps) => {
     return `${hours}h ${minute}m`;
   };
   return (
-    <div className="flex flex-col justify-center md:p-5 lg:px-20 xl:px-25 2xl:px-60 ">
+    <div className="flex flex-col justify-center md:p-5 lg:px-20 xl:px-25 2xl:px-40 ">
       <div className="flex gap-4 flex-col relative top-8">
         <div className="w-full h-full flex items-center justify-between px-5 lg:px-0 ">
           <div className="w-[75%] flex flex-col text-[#09090B] ">
@@ -56,12 +56,12 @@ export const MovieDetails = async ({ movieId }: DetailsPageProps) => {
           <div className="flex gap-8 lg:gap-12 xl:justify-between ">
             <img
               src={urlImg}
-              className="hidden md:flex md:h-95 lg:h-107 xl:h-145 2xl:h-175 "
+              className="hidden md:flex md:h-95 lg:h-107 xl:h-145 2xl:h-155 "
             />
             <div className="flex justify-center relative">
               <img
                 src={urlImg2}
-                className="w-full md:h-95 lg:h-107 xl:h-145 2xl:h-175"
+                className="w-full md:h-95 lg:h-107 xl:h-145 2xl:h-155"
               />
               <div className="flex justify-between items-center w-43.5 h-10 absolute bottom-7 left-7">
                 <div className="bg-[#FFFFFF] size-10 rounded-full flex justify-center items-center">
@@ -79,14 +79,14 @@ export const MovieDetails = async ({ movieId }: DetailsPageProps) => {
           <div className="w-34 md:hidden">
             <img src={urlImg} className=" flex w-29 h-45 sm:w-90 sm:h-60 " />
           </div>
-          <div className="flex flex-col gap-5 ">
+          <div className="flex flex-col gap-5">
             <div className="flex justify-between w-50.25 gap-3 md:w-full"></div>
-            <p className="text-base text-[#09090B] w-50.25 md:w-full">
+            <p className="text-base text-[#09090B] w-50.25 md:w-full dark:text-white">
               {movie.overview}
             </p>
           </div>
         </div>
-        <div className="flex flex-col text-[#09090B] h-51 px-5 md:px-0 gap-5">
+        <div className="flex flex-col text-[#09090B] h-51 px-5 md:px-0 gap-5 dark:text-white">
           <div className="flex gap-13.25 border-b-2 border-[#E4E4E7] h-10">
             <h4 className="w-16 h-7 text-base font-bold">Director</h4>
             <p className="text-base ">director ner</p>

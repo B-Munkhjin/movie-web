@@ -1,5 +1,5 @@
 // "use client";
-import BigPoster from "./_components/BigPoster";
+import { BigPoster } from "./_components/BigPoster";
 import { UpComing } from "./_components/UpComing";
 import { Discription } from "./_components/discription";
 import { Popular } from "./_components/Popular";
