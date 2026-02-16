@@ -33,21 +33,25 @@ export default function Header() {
       </div>
 
       <div className="hidden lg:flex md:visible">
-        <div className="flex gap-3 h-9 xl:h-10">
+        <div className="flex gap-3 h-fit">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <button className="w-24.25 flex px-4 py-2 gap-2 items-center rounded-md border border-[#E4E4E7] justify-center xl:w-30">
                 <div className="size-4 flex justify-center items-center lg:size-5 text-[#18181B] dark:text-white">
                   <ChevronDown />
                 </div>
-                <span className="font-medium text-sm xl:text-base">Genre</span>
+                <span className="font-medium text-sm xl:text-base text-[#18181B] dark:text-white">
+                  Genre
+                </span>
               </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuGroup>
-                <DropdownMenuLabel className="text-[#09090B] flex flex-col ">
-                  <h1 className="text-2xl font-semibold ">Genres</h1>
-                  <p className=" text-base border-b-2 border-[#E4E4E7] h-12 ">
+                <DropdownMenuLabel className=" flex flex-col ">
+                  <h1 className="text-2xl font-semibold text-[#09090B] dark:text-[#FAFAFA]">
+                    Genres
+                  </h1>
+                  <p className=" text-base border-b-2 border-[#E4E4E7] h-12">
                     See lists of movies by genre
                   </p>
                   {/* <p className="border-b-2 border-[#E4E4E7] relative top-4 bottom-4"></p> */}
@@ -56,12 +60,20 @@ export default function Header() {
               </DropdownMenuGroup>
             </DropdownMenuContent>
           </DropdownMenu>
-          <InputGroup className="w-94.75 h-9 xl:h-10 border border-[#E4E4E7] rounded-md flex gap-2.5 items-center px-3 lg:w-130">
-            <InputGroupInput placeholder="Search.." />
+          <InputGroup className="w-fit h-9 xl:h-10 border border-[#E4E4E7] rounded-md flex gap-2.5 items-center px-3 lg:w-130">
+            <InputGroupInput
+              // value={searchValue}
+              // onChange={onChangeSearchValue}
+              placeholder="Search.."
+            />
             <InputGroupAddon>
               <Search className="text-sm text-[#71717A] lg:text-base dark:text-white" />
             </InputGroupAddon>
           </InputGroup>
+          {/* <div className={`absolute `}> */}
+          {/* {loading && <p>...loading</p>} */}
+          {/* {!loading && movies.map((movie) => <h1 key={movie.id}></h1>)} */}
+          {/* </div> */}
         </div>
       </div>
 
