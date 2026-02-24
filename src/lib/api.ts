@@ -11,7 +11,7 @@ const options = {
     Authorization: `Bearer ${token}`,
   },
 };
-export const getPopularMovies = async (): Promise<Response> => {
+export const getPopularMovies = async (page: number): Promise<Response> => {
   const response = await fetch(urlPop, options);
   const data = await response.json();
 

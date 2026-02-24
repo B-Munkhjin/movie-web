@@ -1,14 +1,14 @@
+" use client";
 import { MovieCard } from "@/Components/MovieCard";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { getPopularMovies } from "@/lib/api";
-import { Response } from "@/lib/types";
 
 type SepPopular = {
   className: string;
 };
 export const Popular = async (props: SepPopular) => {
-  const data = await getPopularMovies();
+  const data = await getPopularMovies(1);
   // console.log("data: ", data);
 
   const { className } = props;
@@ -30,16 +30,18 @@ export const Popular = async (props: SepPopular) => {
           </Link>
         </div>
       </div>
-      <div className="grid  mx-auto grid-cols-2 place-content-between gap-5  sm:grid-cols-3 sm:gap-11 lg:gap-8 md:grid-cols-3 lg:grid-cols-4 md:gap-8 xl:gap-x-14 xl:grid-cols-5 2xl:gap-x-18">
-        {data.results.slice(0, 10).map((movie) => (
-          <Link href={`/${movie.id}`} key={movie.id}>
-            <MovieCard
-              title={movie.title}
-              rating={movie.vote_average}
-              img={movie.poster_path}
-            />
-          </Link>
-        ))}
+      <div className="grid mx-auto grid-cols-2 place-content-between gap-5 sm:grid-cols-3 sm:gap-11 lg:gap-8 md:grid-cols-3 lg:grid-cols-4 md:gap-8 xl:gap-x-14 xl:grid-cols-5 2xl:gap-x-18">
+        {(Array.isArray(data?.results) ? data.results : [])
+          .slice(0, 10)
+          .map((movie) => (
+            <Link href={`/${movie.id}`} key={movie.id}>
+              <MovieCard
+                title={movie.title}
+                rating={movie.vote_average}
+                img={movie.poster_path}
+              />
+            </Link>
+          ))}
       </div>
     </div>
   );

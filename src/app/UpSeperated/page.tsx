@@ -1,4 +1,4 @@
-import { UpComing } from "../_components/UpComing";
+import { UpComing } from "../_Components/UpComing";
 import {
   Pagination,
   PaginationContent,

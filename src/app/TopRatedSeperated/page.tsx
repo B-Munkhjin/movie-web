@@ -1,4 +1,4 @@
-import { TopRated } from "../_components/TopRated";
+import { TopRated } from "../_Components/TopRated";
 import {
   Pagination,
   PaginationContent,
