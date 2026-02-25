@@ -44,3 +44,15 @@ export const getMovieById = async (movieId: string) => {
   const movie = await movieDetails.json();
   return movie;
 };
+
+export const getCreditsByMovieId = async (movieId: string) => {
+  const creditsJSON = await fetch(
+    `
+    https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US
+    `,
+    options,
+  );
+
+  const credits = await creditsJSON.json();
+  return credits;
+};

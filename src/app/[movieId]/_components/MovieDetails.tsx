@@ -2,14 +2,30 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Imdb } from "@/Components/imdb";
 import { Play } from "lucide-react";
-import { getMovieById } from "@/lib/api";
+import { getCreditsByMovieId, getMovieById } from "@/lib/api";
 
 type DetailsPageProps = {
   movieId: string;
 };
 export const MovieDetails = async ({ movieId }: DetailsPageProps) => {
   const movie = await getMovieById(movieId);
-  console.log(movie);
+  const credits = await getCreditsByMovieId(movieId);
+
+  const director: string[] = Array.isArray(credits?.crew)
+    ? credits.crew
+        .filter((credit: any) => credit.job === "Director")
+        .map((credit: any) => credit.name)
+    : [];
+
+  const writer: string[] = Array.isArray(credits?.crew)
+    ? credits.crew
+        .filter((credit: any) => credit.department === "Writing")
+        .map((credit: any) => credit.name)
+    : [];
+  const stars: string[] = Array.isArray(credits?.cast)
+    ? credits.cast.map((credit: any) => credit.name)
+    : [];
+
   const urlImg = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
   const urlImg2 = `https://image.tmdb.org/t/p/original/${movie.backdrop_path}`;
 
@@ -89,15 +105,15 @@ export const MovieDetails = async ({ movieId }: DetailsPageProps) => {
         <div className="flex flex-col text-[#09090B] h-51 px-5 md:px-0 gap-5 dark:text-white">
           <div className="flex gap-13.25 border-b-2 border-[#E4E4E7] h-10">
             <h4 className="w-16 h-7 text-base font-bold">Director</h4>
-            <p className="text-base ">director ner</p>
+            <p className="text-base ">{director}</p>
           </div>
           <div className="flex gap-13.25 border-b-2 border-[#E4E4E7] h-10 items-center">
             <h4 className="w-16 h-7 text-base font-bold">Writers</h4>
-            <p className="text-base ">dddddddd</p>
+            <p className="text-base">{writer.slice(0, 3).join("  ·  ")}</p>
           </div>
           <div className="flex gap-13.25 border-b-2 border-[#E4E4E7] h-10">
             <h4 className="w-16 h-7 text-base font-bold">Stars</h4>
-            <p className="text-base ">dddddddd</p>
+            <p className="text-base ">{stars.slice(0, 3).join("  ·  ")}</p>
           </div>
         </div>
       </div>
