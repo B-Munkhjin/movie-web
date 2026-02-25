@@ -5,6 +5,7 @@ import { getUpComingMovies } from "@/lib/api";
 
 type SepUpcoming = {
   className: string;
+  // searchParams?: { [key: string]: string | string[] | undefined };
 };
 export const UpComing = async (props: SepUpcoming) => {
   const dataComing = await getUpComingMovies();

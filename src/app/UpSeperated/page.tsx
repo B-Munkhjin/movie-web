@@ -9,7 +9,9 @@ import {
   PaginationPrevious,
 } from "@/Components/ui/pagination";
 
-export default function SeperatedUpcoming() {
+type UpComingProps = {};
+export const SeperatedUpcoming = async (props: UpComingProps) => {
+  const {} = props;
   return (
     <div className="flex flex-col bg-white dark:bg-[#09090B]">
       <UpComing className="hidden" />
@@ -22,9 +24,7 @@ export default function SeperatedUpcoming() {
             <PaginationLink href="#">1</PaginationLink>
           </PaginationItem>
           <PaginationItem>
-            <PaginationLink href="#" isActive>
-              2
-            </PaginationLink>
+            <PaginationLink href="#">2</PaginationLink>
           </PaginationItem>
           <PaginationItem>
             <PaginationLink href="#">3</PaginationLink>
@@ -39,4 +39,4 @@ export default function SeperatedUpcoming() {
       </Pagination>
     </div>
   );
-}
+};
