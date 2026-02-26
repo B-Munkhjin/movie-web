@@ -66,3 +66,27 @@ export const getGenre = async (): Promise<GenreType> => {
   const getGenre = await genreApi.json();
   return getGenre;
 };
+
+export const getUpComingMoviesByPage = async (
+  page: number,
+): Promise<Response> => {
+  const url = `https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=${page}`;
+  const response = await fetch(url, options);
+  return response.json();
+};
+
+export const getTopRatedMoviesByPage = async (
+  page: number,
+): Promise<Response> => {
+  const url = `https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=${page}`;
+  const response = await fetch(url, options);
+  return response.json();
+};
+
+export const getPopularMoviesByPage = async (
+  page: number,
+): Promise<Response> => {
+  const url = `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}`;
+  const response = await fetch(url, options);
+  return response.json();
+};

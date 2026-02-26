@@ -5,7 +5,6 @@ import { getUpComingMovies } from "@/lib/api";
 
 type SepUpcoming = {
   className: string;
-  // searchParams?: { [key: string]: string | string[] | undefined };
 };
 export const UpComing = async (props: SepUpcoming) => {
   const dataComing = await getUpComingMovies();
@@ -18,7 +17,7 @@ export const UpComing = async (props: SepUpcoming) => {
         </h4>
         <div className={className}>
           <Link
-            href="/UpSeperated"
+            href="/UpSeparated"
             className="flex justify-center items-center gap-2 dark:text-white"
           >
             <p className="text-base md:text-[17px] xl:text-xl">See more</p>
@@ -39,17 +38,6 @@ export const UpComing = async (props: SepUpcoming) => {
             </Link>
           ))}
       </div>
-      {/* <div className="grid mx-auto grid-cols-2 place-content-between gap-5 sm:grid-cols-3 sm:gap-11 lg:gap-8 md:grid-cols-3 lg:grid-cols-4 md:gap-8 xl:gap-x-14 xl:grid-cols-5 2xl:gap-x-18">
-        {dataComing.results.slice(0, 10).map((movie) => (
-          <Link href={`/${movie.id}`} key={movie.id}>
-            <MovieCard
-              title={movie.title}
-              rating={movie.vote_average}
-              img={movie.poster_path}
-            />
-          </Link>
-        ))}
-      </div> */}
     </div>
   );
 };

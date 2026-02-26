@@ -88,3 +88,9 @@ export interface GenreType {
 export interface HeaderProps {
   genres: GenreType[];
 }
+export type Separated = {
+  page: number;
+  results: Movie[];
+  total_pages: number;
+  total_results: number;
+};
