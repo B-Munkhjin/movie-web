@@ -79,3 +79,12 @@ export interface Image {
   vote_count: number;
   width: number;
 }
+export interface GenreType {
+  id: number;
+  name: string;
+  genres: GenreType[];
+}
+
+export interface HeaderProps {
+  genres: GenreType[];
+}

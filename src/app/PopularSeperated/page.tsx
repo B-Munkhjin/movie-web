@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Popular } from "../_Components/Popular";
+import { Popular } from "../_components/Popular";
 import { getPopularMovies } from "@/lib/api";
 import {
   Pagination,

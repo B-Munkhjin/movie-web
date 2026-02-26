@@ -1,5 +1,5 @@
 import { getUpComingMovies } from "@/lib/api";
-import { BigPosterCarousel } from "../_Components/BigPosterCarousel";
+import { BigPosterCarousel } from "./BigPosterCarousel";
 
 export const BigPoster = async () => {
   const dataComing = await getUpComingMovies();

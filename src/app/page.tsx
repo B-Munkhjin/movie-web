@@ -1,8 +1,8 @@
-import { BigPoster } from "./_Components/BigPoster";
-import { UpComing } from "./_Components/UpComing";
-import { Discription } from "./_Components/discription";
-import { Popular } from "./_Components/Popular";
-import { TopRated } from "./_Components/TopRated";
+import { BigPoster } from "./_components/BigPoster";
+import { UpComing } from "./_components/UpComing";
+import { Discription } from "./_components/discription";
+import { Popular } from "./_components/Popular";
+import { TopRated } from "./_components/TopRated";
 
 export default function Home() {
   return (

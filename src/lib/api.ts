@@ -1,4 +1,5 @@
-import { Response, Details } from "./types";
+import { Root } from "postcss";
+import { Response, Details, GenreType } from "./types";
 
 const token = process.env.token;
 const urlPop =
@@ -55,4 +56,13 @@ export const getCreditsByMovieId = async (movieId: string) => {
 
   const credits = await creditsJSON.json();
   return credits;
+};
+
+export const getGenre = async (): Promise<GenreType> => {
+  const genreApi = await fetch(
+    `https://api.themoviedb.org/3/genre/movie/list`,
+    options,
+  );
+  const getGenre = await genreApi.json();
+  return getGenre;
 };
