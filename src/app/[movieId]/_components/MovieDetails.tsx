@@ -7,6 +7,7 @@ import { getCreditsByMovieId, getMovieById } from "@/lib/api";
 type DetailsPageProps = {
   movieId: string;
 };
+
 export const MovieDetails = async ({ movieId }: DetailsPageProps) => {
   const movie = await getMovieById(movieId);
   const credits = await getCreditsByMovieId(movieId);
@@ -34,10 +35,11 @@ export const MovieDetails = async ({ movieId }: DetailsPageProps) => {
     const minute = minutes % 60;
     return `${hours}h ${minute}m`;
   };
+
   return (
-    <div className="flex flex-col justify-center md:p-5 lg:px-20 xl:px-25 2xl:px-40 ">
+    <div className="flex flex-col justify-center max-w-7xl mx-auto px-5 md:px-10 xl:px-0">
       <div className="flex gap-4 flex-col relative top-8">
-        <div className="w-full h-full flex items-center justify-between px-5 lg:px-0 ">
+        <div className="w-full h-full flex items-center justify-between">
           <div className="w-[75%] flex flex-col text-[#09090B] ">
             <div className="text-2xl font-semibold dark:text-white md:font-extrabold lg:text-4xl">
               {movie.title}
@@ -45,7 +47,6 @@ export const MovieDetails = async ({ movieId }: DetailsPageProps) => {
             <div className="text-sm lg:text-lg 2xl:text-xl dark:text-white">
               {movie.release_date} &middot; {movie.adult ? "R" : "PG"} &middot;{" "}
               {formatRunTime(movie.runtime)}
-              {/* 2024.11.26 · PG · 2h 40m */}
             </div>
           </div>
           <div className="flex  items-center gap-1 flex-col">
@@ -91,7 +92,7 @@ export const MovieDetails = async ({ movieId }: DetailsPageProps) => {
         </div>
       </div>
       <div className="flex flex-col relative top-17">
-        <div className="flex justify-between px-5 py-5 md:px-0 w-full ">
+        <div className="flex justify-between py-5 md:px-0 w-full ">
           <div className="w-34 md:hidden">
             <img src={urlImg} className=" flex w-29 h-45 sm:w-90 sm:h-60 " />
           </div>
@@ -102,22 +103,22 @@ export const MovieDetails = async ({ movieId }: DetailsPageProps) => {
             </p>
           </div>
         </div>
-        <div className="flex flex-col text-[#09090B] h-51 px-5 md:px-0 gap-5 dark:text-white">
-          <div className="flex gap-13.25 border-b-2 border-[#E4E4E7] h-10">
+        <div className="flex flex-col text-[#09090B] h-51 md:px-0 gap-5 dark:text-white">
+          <div className="flex gap-13.25 border-b-2 border-[#E4E4E7] items-center">
             <h4 className="w-16 h-7 text-base font-bold">Director</h4>
             <p className="text-base ">{director}</p>
           </div>
-          <div className="flex gap-13.25 border-b-2 border-[#E4E4E7] h-10 items-center">
+          <div className="flex gap-13.25 border-b-2 border-[#E4E4E7] items-center">
             <h4 className="w-16 h-7 text-base font-bold">Writers</h4>
             <p className="text-base">{writer.slice(0, 3).join("  ·  ")}</p>
           </div>
-          <div className="flex gap-13.25 border-b-2 border-[#E4E4E7] h-10">
-            <h4 className="w-16 h-7 text-base font-bold">Stars</h4>
+          <div className="flex gap-13.25 border-b-2 border-[#E4E4E7] items-center">
+            <h4 className="w-29 h-7 text-base font-bold">Stars</h4>
             <p className="text-base ">{stars.slice(0, 3).join("  ·  ")}</p>
           </div>
         </div>
       </div>
-      <div className="relative top-10 px-5 lg:px-0">
+      <div className="relative top-10 lg:px-0">
         <div className="flex justify-between w-full h-9 text-[#09090B] ">
           <h4 className=" text-2xl font-semibold xl:text-[26px] dark:text-white">
             More like this

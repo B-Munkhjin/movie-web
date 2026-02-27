@@ -9,79 +9,114 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/Components/ui/carousel";
-import { Card, CardContent } from "@/Components/ui/card";
 import { Button } from "@/Components/ui/button";
 import { Imdb } from "@/Components/imdb";
+import { Play } from "lucide-react";
 
 type Movie = {
-  id: number | string;
+  adult: boolean;
   backdrop_path: string;
+  genre_ids: number[];
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  release_date: string;
   title: string;
-  overview?: string;
-  vote_average?: number;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
 };
 
-type BigPosterCarouselProps = {
-  movies: Movie[];
-};
-
-export const BigPosterCarousel = ({ movies }: BigPosterCarouselProps) => {
+export const BigPosterCarousel = ({ movies }: { movies: Movie[] }) => {
   const plugin = React.useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: true }),
+    Autoplay({ delay: 4000, stopOnInteraction: true }),
   );
 
+  if (!movies.length) return null;
+
   return (
-    <Carousel
-      plugins={[plugin.current]}
-      onMouseEnter={plugin.current.stop}
-      onMouseLeave={plugin.current.reset}
-      className="relative w-fit"
-    >
+    <Carousel plugins={[plugin.current]} className="w-full">
       <CarouselContent>
         {movies.map((movie) => (
-          <CarouselItem key={movie.id} className="relative">
-            <Card className="w-full h-full">
-              <CardContent className="p-0">
-                <img
-                  src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
-                  alt={movie.title}
-                  className="w-screen h-61.5 lg:h-160 object-cover"
-                />
-              </CardContent>
-            </Card>
-
-            <div className="absolute inset-0 flex flex-col justify-center p-6 lg:p-12 rounded-xl text-white left-7">
-              <p className="text-sm lg:text-base">Now playing:</p>
-              <h2 className="text-2xl lg:text-4xl font-bold">{movie.title}</h2>
-              {movie.vote_average && (
-                <div className="flex items-center gap-2 mt-1">
-                  <img src="/star.png" className="size-5" />
+          <CarouselItem
+            key={movie.id}
+            className="flex flex-col sm:block relative"
+          >
+            <div className="relative w-full h-[45vh] sm:h-[60vh] lg:h-[80vh]">
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt={movie.title}
+                className="object-cover sm:hidden  w-full h-[45vh] "
+              />
+              <img
+                src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+                alt={movie.title}
+                className="w-full h-full object-cover hidden sm:visible"
+              />
+              <div className="hidden sm:flex absolute inset-0  from-black via-black/20 to-transparent items-center pb-12 pl-16">
+                <div className="max-w-2xl text-white space-y-3">
+                  <p className="text-sm uppercase tracking-widest opacity-80">
+                    Now playing
+                  </p>
+                  <h2 className="text-4xl lg:text-6xl font-bold">
+                    {movie.title}
+                  </h2>
+                  <div className="flex items-center gap-3">
+                    <img src="/star.png" className="size-6" alt="rating" />
+                    <Imdb
+                      review={movie.vote_average ?? 0}
+                      className="text-xl font-bold flex"
+                      color="lg:text-[#FFFFFF] "
+                    />
+                  </div>
+                  <p className="text-lg line-clamp-2 opacity-90">
+                    {movie.overview}
+                  </p>
+                  <Button className="bg-white text-black hover:bg-gray-200 px-8 h-12">
+                    <Play className="mr-2 size-5 fill-black" /> Watch Trailer
+                  </Button>
+                </div>
+              </div>
+            </div>
+            <div className="flex sm:hidden flex-col gap-4 p-6 bg-white dark:bg-[#09090B]">
+              <div className="flex justify-between items-start">
+                <div className="space-y-1">
+                  <span className="text-xs font-medium text-gray-500 uppercase tracking-tighter">
+                    Now Playing
+                  </span>
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                    {movie.title}
+                  </h2>
+                </div>
+                <div className="flex items-center gap-1 bg-black/5 dark:bg-white/10 px-2 py-1 rounded">
+                  <img src="/star.png" className="size-4" alt="star" />
                   <Imdb
-                    review={movie.vote_average}
-                    color="text-lg"
-                    className="flex items-center"
+                    review={movie.vote_average ?? 0}
+                    className="text-sm font-bold flex"
+                    color="lg:text-[#FFFFFF]"
                   />
                 </div>
-              )}
-              {movie.overview && (
-                <p className="mt-2 text-sm lg:text-lg max-w-md">
-                  {movie.overview}
-                </p>
-              )}
-              <div className="mt-3 lg:mt-5">
-                <Button
-                  variant="default"
-                  className="dark:bg-white dark:text-black bg-white text-black hover:bg-gray-200 dark:hover:bg-gray-300"
-                >
-                  Watch Now
-                </Button>
               </div>
+
+              <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400 line-clamp-3">
+                {movie.overview}
+              </p>
+
+              <Button className="w-full flex gap-2 bg-[#18181B] text-white dark:bg-[#F4F4F5] dark:text-[#18181B] h-12">
+                <Play className="size-4 fill-current" />
+                <span className="font-semibold text-base">Watch Trailer</span>
+              </Button>
             </div>
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="absolute left-4" />
-      <CarouselNext className="absolute right-4" />
+      <div className="hidden md:block">
+        <CarouselPrevious className="left-6 scale-125" />
+        <CarouselNext className="right-6 scale-125" />
+      </div>
     </Carousel>
   );
 };

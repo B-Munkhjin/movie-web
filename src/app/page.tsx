@@ -1,14 +1,16 @@
 import { BigPoster } from "./_components/BigPoster";
 import { UpComing } from "./_components/UpComing";
-import { Discription } from "./_components/discription";
+// import { Description } from "./_components/description";
 import { Popular } from "./_components/Popular";
 import { TopRated } from "./_components/TopRated";
+import { getPopularMovies } from "@/lib/api";
 
-export default function Home() {
+export default async function Home() {
+  const popularData = await getPopularMovies(1);
+  const movies = popularData.results || [];
   return (
     <div className="w-full h-full flex flex-col ">
       <BigPoster />
-      <Discription className="w-full h-66 flex flex-col gap-5 p-5 sm:hidden " />
       <div className="flex flex-col gap-8">
         <UpComing className="visible" />
         <Popular className="visible" />
