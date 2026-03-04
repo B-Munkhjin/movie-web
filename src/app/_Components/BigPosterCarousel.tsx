@@ -35,10 +35,15 @@ export const BigPosterCarousel = ({ movies }: { movies: Movie[] }) => {
     Autoplay({ delay: 4000, stopOnInteraction: true }),
   );
 
-  if (!movies.length) return null;
+  const [current, setCurrent] = React.useState(0);
+
+  const dotChange = (poster: any) => {
+    if (!poster) return;
+    poster.on("select", () => setCurrent(poster.selectedScrollSnap()));
+  };
 
   return (
-    <Carousel plugins={[plugin.current]} className="w-full">
+    <Carousel plugins={[plugin.current]} setApi={dotChange} className="w-full">
       <CarouselContent>
         {movies.map((movie) => (
           <CarouselItem
@@ -54,7 +59,7 @@ export const BigPosterCarousel = ({ movies }: { movies: Movie[] }) => {
               <img
                 src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
                 alt={movie.title}
-                className="w-full h-full object-cover hidden sm:visible"
+                className="w-full h-full object-cover hidden sm:block absolute inset-0"
               />
               <div className="hidden sm:flex absolute inset-0  from-black via-black/20 to-transparent items-center pb-12 pl-16">
                 <div className="max-w-2xl text-white space-y-3">
@@ -113,6 +118,16 @@ export const BigPosterCarousel = ({ movies }: { movies: Movie[] }) => {
           </CarouselItem>
         ))}
       </CarouselContent>
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+        {movies.map((_, index) => (
+          <span
+            key={index}
+            className={`md:size-2 rounded-full ${
+              current === index ? "bg-white" : "bg-gray-400"
+            }`}
+          />
+        ))}
+      </div>
       <div className="hidden md:block">
         <CarouselPrevious className="left-6 scale-125" />
         <CarouselNext className="right-6 scale-125" />
