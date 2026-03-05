@@ -1,4 +1,3 @@
-import { Root } from "postcss";
 import { Response, Details, GenreType } from "./types";
 
 const token = process.env.token;

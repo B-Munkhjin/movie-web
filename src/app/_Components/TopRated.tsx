@@ -19,7 +19,7 @@ export const TopRated = async (props: SepTop) => {
           </h4>
           <div className={className}>
             <Link
-              href="/TopRatedSeperated"
+              href="@/app/TopRatedSeparated/page.tsx" ///////////////////aldaaaaaa
               className="flex justify-center items-center gap-2 dark:text-white"
             >
               <p className="text-base md:text-[17px] xl:text-xl">See more</p>
